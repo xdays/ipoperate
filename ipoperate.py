@@ -110,8 +110,8 @@ def long2ip(x):
     ips = ''
     n = 3
     while n >= 1:
-        ips = ips + str(x/(255**n)) + '.'
-        x = x%(255**n)
+        ips = ips + str(x/(256**n)) + '.'
+        x = x%(256**n)
         n = n - 1
     ips = ips + str(x)
     return ips
