@@ -164,3 +164,20 @@ def nets2net(net1, net2):
     mask = str(min(int(mmask), int(mask1), int(mask2)))
     return net,mask
 
+def cidr2mask(net):
+    '''change network fromat from cidr to mask
+    input: 192.168.1.0/24
+    output: 192.168.1.0/255.255.255.0
+    '''
+    netid,cidr = net.split('/')
+    mask = bin2ip(''.join(['1']*int(cidr)+['0']*(32-int(cidr))))
+    return '%s/%s' % (netid, mask)
+
+def mask2cidr(net):
+    '''change network fromat from mask to cidr
+    input: 192.168.1.0/255.255.255.0
+    output: 192.168.1.0/24
+    '''
+    netid,mask = net.split('/')
+    cidr = len(ip2bin(mask).split('0')[0])
+    return '%s/%s' % (netid, cidr)
