@@ -116,7 +116,7 @@ def long2ip(x):
     ips = ips + str(x)
     return ips
 
-def netrange(x):
+def net2ips(x):
     '''calculate the range of ip/mask in 256 hex
     input: 192.168.1.0/24
     output: 192.168.1.1,192.168.1.255,
@@ -150,12 +150,12 @@ def ips2net(ip1, ip2):
     output: 192.168.4.0/23
     '''
     mbin, mmask = compare(ip2bin(ip1), ip2bin(ip2), 32, 32)
-    return bin2ip(mbin),mmask
+    return bin2ip(mbin),str(mmask)
 
 def nets2net(net1, net2):
     '''merge two network and return the smallest network
     containing them
-    input: 192.168.4.0,192.168.5.0,24,24
+    input: 192.168.4.0/24,192.168.5.0/24
     output: 192.168.4.0/23
     '''
     ip1,mask1,ip2,mask2 = net1.split('/') + net2.split('/')
