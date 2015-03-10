@@ -3,7 +3,6 @@
  
 from setuptools import setup
 import ipoperate
-import pypandoc
 import os
 
 
@@ -11,7 +10,7 @@ setup(
     name='ipoperate',
     version=ipoperate.__VERSION__,
     description='magic functions to operate ips and nets',
-    long_description = pypandoc.convert('README.md', 'rst'),
+    long_description = open('README.md').read(),
     license='License :: OSI Approved :: MIT License',
     platforms='Platform Independent',
     author='Alair Zhang (xdays)',

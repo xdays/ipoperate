@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
  
-__VERSION__ = '1.0' 
+__VERSION__ = '1.1' 
 __AUTHOR__ = 'xdays'
 
 try:
