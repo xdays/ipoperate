@@ -15,7 +15,7 @@ setup(
     platforms='Platform Independent',
     author='Alair Zhang (xdays)',
     author_email='easedays@gmail.com',
-    url='http://www.xdays.info',
+    url='http://xdays.me',
     packages=['ipoperate'],
     keywords=['ipoperate', 'ip2net', 'nets2net', 'ip2bin'],
     classifiers=[

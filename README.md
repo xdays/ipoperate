@@ -1,5 +1,10 @@
 # 简介
+
 完成与ip地址和网段相关的一系列操作
+
+# 安装
+
+    pip install ipoperate
 
 # 功能列表
 
