@@ -2,26 +2,16 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from ipoperate import ip2long, long2ip
+from ipoperate import ip2long, long2ip, ips2range
  
 if len(sys.argv) == 1:
     f = sys.stdin
 else:
     f = open(sys.argv[1]) 
-start = []
-v = 0
 
-for i in f:
-    n = int(ip2long(i.strip('\n'))) # current value
-    if abs(n - v) > 5:
-        start.append(v)
-        start.append(n)
-    v = n # former value
-else:
-    start.append(n)
+ips = [line.strip('\n') for line in f.readlines()]
 
-result = [long2ip(i) for i in start]
-numb = 1
-while numb<len(result):
-    print result[numb] + '-' + result[numb+1].split('.')[-1]
-    numb = numb + 2
+ip_list = sorted([ int(ip2long(j)) for j in ips])
+ip_ranges = ips2range([long2ip(k) for k in ip_list])
+for ip_range in ip_ranges:
+    print '-'.join(ip_range)

@@ -11,6 +11,7 @@ setup(
     version=ipoperate.__VERSION__,
     description='magic functions to operate ips and nets',
     long_description = open('README.md').read(),
+    long_description_content_type='text/markdown',
     license='License :: OSI Approved :: MIT License',
     platforms='Platform Independent',
     author='Alair Zhang (xdays)',
