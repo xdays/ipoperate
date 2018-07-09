@@ -182,7 +182,7 @@ def mask2cidr(net):
     cidr = len(ip2bin(mask).split('0')[0])
     return '%s/%s' % (netid, cidr)
 
-def ips2range(ips):
+def ips2range(ips, step=5):
     '''merge ip list into ip range
     input: ['192.168.1.1', '192.168.1.2', '192.168.1.3']
     output: [('192.168.1.1', '192.168.1.3')]
@@ -192,11 +192,12 @@ def ips2range(ips):
     start_ip = ips[0]
     end_ip = ips[0]
     for ip in ips:
-        if ip - start_ip < 5:
+        if ip - start_ip < step:
             end_ip = ip
         else:
             ip_ranges.append((long2ip(start_ip), long2ip(end_ip)))
             start_ip = ip
+            end_ip = ip
     else:
         ip_ranges.append((long2ip(start_ip), long2ip(end_ip)))
     return ip_ranges
